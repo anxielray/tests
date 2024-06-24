@@ -17,21 +17,14 @@ func main() {
 
 func findPrime(n int) (prime bool) {
 	if n < 2 {
-		prime = false
-	} else if n < 4 {
-		prime = true
-	} else if n%2 == 0 {
-		prime = false
-	} else if n == 5 {
-		prime = true
-	} else if n%5 == 0 && n != 5 {
-		prime = false
-	} else if n%3 == 0 {
-		prime = false
-	} else {
-		prime = true
+		return false
 	}
-	return
+	for x := 2; x < n; x++ {
+		if n%x == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 func prevprime(prime int) (prev int) {
